@@ -68,3 +68,8 @@ flutter {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    // AppMetrica SDK.
+    implementation 'io.appmetrica.analytics:analytics:7.0.0'
+}
