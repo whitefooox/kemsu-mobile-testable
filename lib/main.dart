@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kemsu_app/Configurations/navigation.dart';
+import 'package:kemsu_app/UI/common_views/snack_bar.dart';
 import 'package:kemsu_app/domain/di_initial.dart';
 import 'UI/custom_themes.dart';
 
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp.router(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       themeMode: ThemeMode.system,
       theme: CustomThemes.lightTheme,
       darkTheme: CustomThemes.darkTheme,

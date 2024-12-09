@@ -42,8 +42,8 @@ Map<String, dynamic> _$ScheduleResultToJson(ScheduleResult instance) =>
 
 ScheduleCoupleList _$ScheduleCoupleListFromJson(Map<String, dynamic> json) =>
     ScheduleCoupleList(
-      id: json['Id'] as int,
-      num: json['Num'] as int,
+      id: (json['Id'] as num).toInt(),
+      num: (json['Num'] as num).toInt(),
       description: json['Description'] as String,
     );
 
@@ -220,15 +220,15 @@ ScheduleCouple _$ScheduleCoupleFromJson(Map<String, dynamic> json) =>
       prepName: json['PrepName'] as String? ?? '',
       auditoryName: json['AuditoryName'] as String? ?? '',
       lessonType: json['lessonType'] as String? ?? '',
-      loadDiscipId: json['loadDiscipId'] as int? ?? 0,
+      loadDiscipId: (json['loadDiscipId'] as num?)?.toInt() ?? 0,
       periodTypeName: json['periodTypeName'] as String? ?? '',
-      periodTypeId: json['PeriodTypeId'] as int? ?? 0,
-      maxWeekNum: json['maxWeekNum'] as int? ?? 0,
-      minWeekNum: json['minWeekNum'] as int? ?? 0,
-      selectFlag: json['selectFlag'] as int? ?? 0,
+      periodTypeId: (json['PeriodTypeId'] as num?)?.toInt() ?? 0,
+      maxWeekNum: (json['maxWeekNum'] as num?)?.toInt() ?? 0,
+      minWeekNum: (json['minWeekNum'] as num?)?.toInt() ?? 0,
+      selectFlag: (json['selectFlag'] as num?)?.toInt() ?? 0,
       periodTypePref: json['periodTypePref'] as String? ?? '',
-      loadFlag: json['loadFlag'] as int? ?? 0,
-      scheduleId: json['scheduleId'] as int? ?? 0,
+      loadFlag: (json['loadFlag'] as num?)?.toInt() ?? 0,
+      scheduleId: (json['scheduleId'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$ScheduleCoupleToJson(ScheduleCouple instance) =>
@@ -250,8 +250,8 @@ Map<String, dynamic> _$ScheduleCoupleToJson(ScheduleCouple instance) =>
 
 ScheduleWeekList _$ScheduleWeekListFromJson(Map<String, dynamic> json) =>
     ScheduleWeekList(
-      id: json['Id'] as int,
-      dayNum: json['DayNum'] as int,
+      id: (json['Id'] as num).toInt(),
+      dayNum: (json['DayNum'] as num).toInt(),
       dayName: json['DayName'] as String,
       dayNameShort: json['DayNameShort'] as String,
     );
@@ -267,7 +267,7 @@ Map<String, dynamic> _$ScheduleWeekListToJson(ScheduleWeekList instance) =>
 ScheduleWeekTypeList _$ScheduleWeekTypeListFromJson(
         Map<String, dynamic> json) =>
     ScheduleWeekTypeList(
-      id: json['Id'] as int,
+      id: (json['Id'] as num).toInt(),
       name: json['Name'] as String,
     );
 

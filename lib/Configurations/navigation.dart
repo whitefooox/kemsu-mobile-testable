@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kemsu_app/UI/menu.dart';
 import 'package:kemsu_app/UI/not_auth_menu.dart';
 import 'package:kemsu_app/UI/splash_screen.dart';
-import 'package:kemsu_app/UI/views/bug_report/bug_report_view.dart';
+import 'package:kemsu_app/UI/views/bug_report/bloc/bug_report_bloc.dart';
+import 'package:kemsu_app/UI/views/bug_report/bug_report_screen.dart';
 import 'package:kemsu_app/UI/views/calculation/calculation_screen.dart';
 import 'package:kemsu_app/UI/views/check_list/check_list_view.dart';
 import 'package:kemsu_app/UI/views/debts/debts_view.dart';
@@ -17,6 +20,7 @@ import 'package:kemsu_app/UI/views/payment_web_view/payment.dart';
 import 'package:kemsu_app/UI/views/profile_bloc/edit/edit_screen.dart';
 import 'package:kemsu_app/UI/views/rating_of_students/views/ros_view.dart';
 import 'package:kemsu_app/domain/repositories/authorization/abstract_auth_repository.dart';
+import 'package:kemsu_app/domain/repositories/bug_report/bug_report_repository.dart';
 import '../UI/common_widgets.dart';
 import 'localizable.dart';
 
@@ -84,7 +88,13 @@ final appRouter = GoRouter(
     GoRoute(
       name: 'support',
       path: '/support',
-      builder: (context, state) => const MainBugReportScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => BugReportBloc(
+          bugReportRepository: GetIt.I<BugReportRepository>(),
+          storage: GetIt.I<FlutterSecureStorage>(),
+        )..add(BugReportInitEvent()),
+        child: BugReportScreen(),
+      ),
     ),
     GoRoute(
       name: 'courses',

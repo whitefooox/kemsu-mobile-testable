@@ -23,7 +23,7 @@ Map<String, dynamic> _$ScheduleTeacherModelToJson(
     };
 
 TeacherList _$TeacherListFromJson(Map<String, dynamic> json) => TeacherList(
-      prepId: json['prepId'] as int,
+      prepId: (json['prepId'] as num).toInt(),
       fio: json['fio'] as String,
     );
 
@@ -69,8 +69,8 @@ Map<String, dynamic> _$TeacherResultToJson(TeacherResult instance) =>
 
 TeacherCouple _$TeacherCoupleFromJson(Map<String, dynamic> json) =>
     TeacherCouple(
-      id: json['Id'] as int,
-      num: json['Num'] as int,
+      id: (json['Id'] as num).toInt(),
+      num: (json['Num'] as num).toInt(),
       description: json['Description'] as String,
     );
 
@@ -125,11 +125,11 @@ TeacherCeil _$TeacherCeilFromJson(Map<String, dynamic> json) => TeacherCeil(
       discName: json['discName'] as String,
       auditoryName: json['auditoryName'] as String,
       lessonType: json['lessonType'] as String,
-      loadDiscipId: json['loadDiscipId'] as int,
+      loadDiscipId: (json['loadDiscipId'] as num).toInt(),
       groupName: json['groupName'] as String,
-      startWeekNum: json['startWeekNum'] as int,
-      endWeekNum: json['endWeekNum'] as int,
-      selectFlag: json['selectFlag'] as int,
+      startWeekNum: (json['startWeekNum'] as num).toInt(),
+      endWeekNum: (json['endWeekNum'] as num).toInt(),
+      selectFlag: (json['selectFlag'] as num).toInt(),
     );
 
 Map<String, dynamic> _$TeacherCeilToJson(TeacherCeil instance) =>
@@ -145,8 +145,8 @@ Map<String, dynamic> _$TeacherCeilToJson(TeacherCeil instance) =>
     };
 
 TeacherWeek _$TeacherWeekFromJson(Map<String, dynamic> json) => TeacherWeek(
-      id: json['Id'] as int,
-      dayNum: json['DayNum'] as int,
+      id: (json['Id'] as num).toInt(),
+      dayNum: (json['DayNum'] as num).toInt(),
       dayName: json['DayName'] as String,
       dayNameShort: json['DayNameShort'] as String,
     );

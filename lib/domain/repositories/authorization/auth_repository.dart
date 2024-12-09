@@ -10,10 +10,10 @@ import '../../../Configurations/config.dart';
 import '../../dio_wrapper/dio_client.dart';
 
 class AuthRepository implements AbstractAuthRepository {
-  AuthRepository({required this.dio});
+  AuthRepository({required this.dio, required this.storage});
 
   final DioClient dio;
-  static const storage = FlutterSecureStorage();
+  final FlutterSecureStorage storage;
 
   @override
   final ValueNotifier<Lce<AuthModel>> userData = ValueNotifier(const Lce.idle());

@@ -21,7 +21,7 @@ Map<String, dynamic> _$CurrentDayModelToJson(CurrentDayModel instance) =>
     };
 
 CurrentDay _$CurrentDayFromJson(Map<String, dynamic> json) => CurrentDay(
-      weekNum: json['weekNum'] as int?,
+      weekNum: (json['weekNum'] as num?)?.toInt(),
       weekType: json['weekType'] as String?,
       currentDate: json['currentDate'] as String?,
       currentDay: json['currentDay'] as String?,

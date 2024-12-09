@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kemsu_app/Configurations/navigation.dart';
 import 'package:kemsu_app/domain/repositories/authorization/abstract_auth_repository.dart';
 
-import '../../../Configurations/localizable.dart';
-import '../../../domain/models/authorization/auth_model.dart';
-import '../../splash_screen.dart';
-import '../schedule_new/schedule_bloc.dart';
+import '../../../../Configurations/localizable.dart';
+import '../../../../domain/models/authorization/auth_model.dart';
+import '../../../splash_screen.dart';
+import '../../schedule_new/schedule_bloc.dart';
 
 part 'auth_events.dart';
 part 'auth_state.dart';
@@ -28,18 +28,30 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
 
   Future<void> _postAuth(PostAuthEvents event, Emitter<AuthState> emit) async {
     try {
-      final authData = await authRepository.postAuth(login: event.login, password: event.password);
+      final authData = await authRepository.postAuth(
+          login: event.login, password: event.password);
       await storage.write(key: "userType", value: authData.userInfo?.userType);
-      await storage.write(key: "FIO", value: "${authData.userInfo?.lastName} ${authData.userInfo?.firstName} ${authData.userInfo?.middleName}");
-      if (authData.twoFactorAuthEnabled != null && authData.twoFactorAuthEnabled!) {
+      await storage.write(
+          key: "FIO",
+          value:
+              "${authData.userInfo?.lastName} ${authData.userInfo?.firstName} ${authData.userInfo?.middleName}");
+      if (authData.twoFactorAuthEnabled != null &&
+          authData.twoFactorAuthEnabled!) {
         emit(state.copyWith(isTwoFactorEnter: true));
       } else {
-        emit(state.copyWith(authData: authData, isAuthSuccess: true, userType: authData.userInfo?.userType == EnumUserType.employee ? 1 : 0));
+        emit(state.copyWith(
+            authData: authData,
+            isAuthSuccess: true,
+            userType:
+                authData.userInfo?.userType == EnumUserType.employee ? 1 : 0));
         if (state.isAuthSuccess) {
           AppRouting.toMenu();
         } else {
           print('TEST TEST');
-          final error = DioException.badResponse(statusCode: 555, requestOptions: RequestOptions(), response: Response(requestOptions: RequestOptions()));
+          final error = DioException.badResponse(
+              statusCode: 555,
+              requestOptions: RequestOptions(),
+              response: Response(requestOptions: RequestOptions()));
           _processStatusCode(error);
         }
       }
@@ -51,15 +63,26 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
 
   Future<void> _authByCode(AuthByCode event, Emitter<AuthState> emit) async {
     try {
-      final authData = await authRepository.authByCode(login: event.login, code: event.code);
+      final authData =
+          await authRepository.authByCode(login: event.login, code: event.code);
       await storage.write(key: "userType", value: authData.userInfo?.userType);
-      await storage.write(key: "FIO", value: "${authData.userInfo?.lastName} ${authData.userInfo?.firstName} ${authData.userInfo?.middleName}");
-      emit(state.copyWith(authData: authData, isAuthSuccess: true, userType: authData.userInfo?.userType == EnumUserType.employee ? 1 : 0));
+      await storage.write(
+          key: "FIO",
+          value:
+              "${authData.userInfo?.lastName} ${authData.userInfo?.firstName} ${authData.userInfo?.middleName}");
+      emit(state.copyWith(
+          authData: authData,
+          isAuthSuccess: true,
+          userType:
+              authData.userInfo?.userType == EnumUserType.employee ? 1 : 0));
       if (state.isAuthSuccess) {
         AppRouting.toMenu();
       } else {
         print('TEST TEST');
-        final error = DioException.badResponse(statusCode: 555, requestOptions: RequestOptions(), response: Response(requestOptions: RequestOptions()));
+        final error = DioException.badResponse(
+            statusCode: 555,
+            requestOptions: RequestOptions(),
+            response: Response(requestOptions: RequestOptions()));
         _processStatusCode(error);
       }
     } on DioException catch (error) {
@@ -81,13 +104,15 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
           AppRouting.toAuthAlert(body: Localizable.authError500);
           break;
         default:
-          AppRouting.toAuthAlert(body: "${Localizable.authErrorDefault} $error");
+          AppRouting.toAuthAlert(
+              body: "${Localizable.authErrorDefault} $error");
           break;
       }
     }
   }
 
-  Future<void> _changeRememberMe(ChangeRememberMeEvent event, Emitter<AuthState> emit) async {
+  Future<void> _changeRememberMe(
+      ChangeRememberMeEvent event, Emitter<AuthState> emit) async {
     try {
       final isRememberMe = event.isRememberMe ?? false;
       await storage.write(key: "isRememberMe", value: "$isRememberMe");
@@ -98,7 +123,8 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
     }
   }
 
-  Future<void> _changePasswordObscure(ChangePasswordObscureEvent event, Emitter<AuthState> emit) async {
+  Future<void> _changePasswordObscure(
+      ChangePasswordObscureEvent event, Emitter<AuthState> emit) async {
     try {
       final isObscure = event.isObscure ?? true;
       emit(state.copyWith(isObscure: !isObscure));
@@ -107,7 +133,8 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
     }
   }
 
-  Future<void> _updateLoginTextField(UpdateLoginTextFieldEvent event, Emitter<AuthState> emit) async {
+  Future<void> _updateLoginTextField(
+      UpdateLoginTextFieldEvent event, Emitter<AuthState> emit) async {
     try {
       emit(state.copyWith(login: event.login));
     } catch (e) {
@@ -115,7 +142,8 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
     }
   }
 
-  Future<void> _updatePasswordTextField(UpdatePasswordTextFieldEvent event, Emitter<AuthState> emit) async {
+  Future<void> _updatePasswordTextField(
+      UpdatePasswordTextFieldEvent event, Emitter<AuthState> emit) async {
     try {
       emit(state.copyWith(password: event.password));
     } catch (e) {
@@ -125,7 +153,9 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
 
   Future<void> _problems(ProblemsEvent event, Emitter<AuthState> emit) async {
     try {
-      AppRouting.toAuthAlert(title: Localizable.authTroubleLoggingInHeader, body: Localizable.authTroubleLoggingInBody);
+      AppRouting.toAuthAlert(
+          title: Localizable.authTroubleLoggingInHeader,
+          body: Localizable.authTroubleLoggingInBody);
     } catch (e) {
       AppRouting.toAuthAlert(body: e.toString());
     }

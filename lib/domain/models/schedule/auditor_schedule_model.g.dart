@@ -36,8 +36,8 @@ Map<String, dynamic> _$AuditorScheduleToJson(AuditorSchedule instance) =>
 
 AuditorCoupleList _$AuditorCoupleListFromJson(Map<String, dynamic> json) =>
     AuditorCoupleList(
-      id: json['Id'] as int?,
-      num: json['Num'] as int?,
+      id: (json['Id'] as num?)?.toInt(),
+      num: (json['Num'] as num?)?.toInt(),
       description: json['Description'] as String?,
     );
 
@@ -58,8 +58,8 @@ AuditorTable _$AuditorTableFromJson(Map<String, dynamic> json) => AuditorTable(
       coupleOdd: (json['coupleOdd'] as List<dynamic>?)
           ?.map((e) => AuditorCouple.fromJson(e as Map<String, dynamic>))
           .toList(),
-      coupleId: json['coupleId'] as int?,
-      weekDayId: json['weekDayId'] as int?,
+      coupleId: (json['coupleId'] as num?)?.toInt(),
+      weekDayId: (json['weekDayId'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$AuditorTableToJson(AuditorTable instance) =>
@@ -76,13 +76,13 @@ AuditorCouple _$AuditorCoupleFromJson(Map<String, dynamic> json) =>
       discName: json['discName'] as String? ?? '',
       prepName: json['prepName'] as String? ?? '',
       lessonType: json['lessonType'] as String? ?? '',
-      loadDiscipId: json['loadDiscipId'] as int? ?? 0,
+      loadDiscipId: (json['loadDiscipId'] as num?)?.toInt() ?? 0,
       groupName: json['groupName'] as String? ?? '',
-      startWeekNum: json['startWeekNum'] as int? ?? 0,
-      endWeekNum: json['endWeekNum'] as int? ?? 0,
-      selectFlag: json['selectFlag'] as int? ?? 0,
-      weekDayId: json['weekDayId'] as int? ?? 0,
-      coupleId: json['coupleId'] as int? ?? 0,
+      startWeekNum: (json['startWeekNum'] as num?)?.toInt() ?? 0,
+      endWeekNum: (json['endWeekNum'] as num?)?.toInt() ?? 0,
+      selectFlag: (json['selectFlag'] as num?)?.toInt() ?? 0,
+      weekDayId: (json['weekDayId'] as num?)?.toInt() ?? 0,
+      coupleId: (json['coupleId'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$AuditorCoupleToJson(AuditorCouple instance) =>
@@ -101,8 +101,8 @@ Map<String, dynamic> _$AuditorCoupleToJson(AuditorCouple instance) =>
 
 AuditorWeekDayList _$AuditorWeekDayListFromJson(Map<String, dynamic> json) =>
     AuditorWeekDayList(
-      id: json['Id'] as int?,
-      dayNum: json['DayNum'] as int?,
+      id: (json['Id'] as num?)?.toInt(),
+      dayNum: (json['DayNum'] as num?)?.toInt(),
       dayName: json['DayName'] as String?,
       dayNameShort: json['DayNameShort'] as String?,
     );
@@ -117,7 +117,7 @@ Map<String, dynamic> _$AuditorWeekDayListToJson(AuditorWeekDayList instance) =>
 
 AuditorWeekTypeList _$AuditorWeekTypeListFromJson(Map<String, dynamic> json) =>
     AuditorWeekTypeList(
-      id: json['Id'] as int?,
+      id: (json['Id'] as num?)?.toInt(),
       name: json['Name'] as String?,
     );
 

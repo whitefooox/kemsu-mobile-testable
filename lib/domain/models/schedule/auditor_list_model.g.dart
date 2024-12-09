@@ -21,11 +21,11 @@ Map<String, dynamic> _$AuditorListToJson(AuditorList instance) =>
 
 AuditorListElement _$AuditorListElementFromJson(Map<String, dynamic> json) =>
     AuditorListElement(
-      auditoryId: json['auditoryId'] as int,
+      auditoryId: (json['auditoryId'] as num).toInt(),
       auditoryName: json['auditoryName'] as String,
       auditoryType: json['auditoryType'] as String,
       auditoryBuild: json['auditoryBuild'] as String,
-      auditoryBuildNumber: json['auditoryBuildNumber'] as int,
+      auditoryBuildNumber: (json['auditoryBuildNumber'] as num).toInt(),
     );
 
 Map<String, dynamic> _$AuditorListElementToJson(AuditorListElement instance) =>
