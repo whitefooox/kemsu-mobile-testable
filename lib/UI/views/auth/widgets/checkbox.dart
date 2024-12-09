@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../Configurations/localizable.dart';
-import '../auth_bloc.dart';
+import '../bloc/auth_bloc.dart';
 
 class AuthCheckbox extends StatelessWidget {
-  const AuthCheckbox({
-    super.key,
-    required this.state,
-    required this.bloc
-  });
+  const AuthCheckbox({super.key, required this.state, required this.bloc});
 
   final AuthState state;
   final AuthBloc bloc;

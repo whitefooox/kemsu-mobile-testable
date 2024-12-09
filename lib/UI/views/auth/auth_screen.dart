@@ -8,7 +8,7 @@ import 'package:kemsu_app/UI/views/auth/widgets/text_field.dart';
 import '../../../Configurations/localizable.dart';
 import '../../../domain/repositories/authorization/abstract_auth_repository.dart';
 import '../../common_views/main_button.dart';
-import 'auth_bloc.dart';
+import 'bloc/auth_bloc.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
