@@ -104,7 +104,7 @@ Widget _notView(context, NotificationViewModel model) {
                                                   if (model.isLink(link) && await canLaunchUrlString(link)) {
                                                     await launchUrlString(link);
                                                   } else {
-                                                    showSnackBar(context, "Ссылка некорректна");
+                                                    showSnackBar(content: "Ссылка некорректна");
                                                   }
                                                 },
                                                 title: linkItem.linkTitle ?? "Перейти по ссылке",
