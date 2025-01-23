@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class CustomThemes {
   static final darkTheme = ThemeData(
       useMaterial3: true,
-      dialogBackgroundColor: Colors.white,
-      dialogTheme: const DialogTheme(
-        backgroundColor: Colors.white,
+      dialogBackgroundColor: Colors.grey.shade900,
+      dialogTheme: DialogTheme(
+        backgroundColor: Colors.grey.shade900,
         surfaceTintColor: Colors.transparent,
       ),
       brightness: Brightness.dark,
@@ -69,6 +69,7 @@ class CustomThemes {
         iconColor: Colors.blue,
       ),
       colorScheme: const ColorScheme.light().copyWith(secondary: Colors.white),
-      textSelectionTheme: TextSelectionThemeData(selectionColor: Colors.lightBlueAccent.withOpacity(0.5), cursorColor: Colors.blue, selectionHandleColor: Colors.blue),
+      textSelectionTheme: TextSelectionThemeData(
+          selectionColor: Colors.lightBlueAccent.withOpacity(0.5), cursorColor: Colors.blue, selectionHandleColor: Colors.blue),
       cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: Colors.blue));
 }

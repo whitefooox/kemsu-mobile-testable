@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kemsu_app/Configurations/navigation.dart';
@@ -42,7 +44,8 @@ class _OrderingInformationMainViewState extends State<OrderingInformationNewCert
 
 _orderingInformationView(BuildContext context, OrderingInformationNewCertificatesViewModel model) {
   return ListView(
-    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 12, right: MediaQuery.of(context).size.width / 12, top: MediaQuery.of(context).size.height / 6),
+    padding: EdgeInsets.only(
+        left: MediaQuery.of(context).size.width / 12, right: MediaQuery.of(context).size.width / 12, top: MediaQuery.of(context).size.height / 6),
     children: [
       Text(
         Localizable.newCertName,
@@ -108,11 +111,12 @@ _orderingInformationView(BuildContext context, OrderingInformationNewCertificate
 }
 
 _downloadFinish(context) {
+  bool isAndroid = Platform.isAndroid;
   return showDialog<String>(
     context: context,
     builder: (BuildContext context) => AlertDialog(
       title: Text(Localizable.newCertLoaded),
-      content: Text(Localizable.newCertSaveOnDeviceDescription),
+      content: Text(isAndroid ? Localizable.newCertSaveOnDeviceDescriptionAndroid : Localizable.newCertSaveOnDeviceDescriptionIOS),
       actions: <Widget>[
         TextButton(
           onPressed: () => AppRouting.toMenu(),

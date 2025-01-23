@@ -137,7 +137,8 @@ class Localizable {
   /// Check list
   static String checkListTitle = 'Обходной лист';
   static String checkListDivisions = 'Список подразделений';
-  static String checkListDescription = 'Дирекцию института, бюро пропусков, отдел кадров студентов рекомендуется проходить в указанной последовательности в последнюю очередь';
+  static String checkListDescription =
+      'Дирекцию института, бюро пропусков, отдел кадров студентов рекомендуется проходить в указанной последовательности в последнюю очередь';
 
   /// Bug report
   static String bugReportTitle = 'Сообщения об ошибках';
@@ -148,7 +149,8 @@ class Localizable {
   static String bugReportCreate = 'Создать обращение';
   static String bugReportEnterMessage = 'Введите сообщение';
   static String bugReportSend = 'Отправить';
-  static String bugReportWarningMessage = 'Пожалуйста, обратите внимание: мы не можем предоставить ответы на вопросы напрямую. Наша команда занимается только исправлением '
+  static String bugReportWarningMessage =
+      'Пожалуйста, обратите внимание: мы не можем предоставить ответы на вопросы напрямую. Наша команда занимается только исправлением '
       'ошибок, связанных с техническими проблемами мобильного приложения. Благодарим за понимание!';
 
   /// Ordering information
@@ -158,7 +160,8 @@ class Localizable {
   static String orderingInformationRequestHelpCall = 'Заказать справку-вызов';
   static String orderingInformationGroupName = 'Название группы: ';
   static String orderingInformationYouCannotGetThisCertificate = "Вы не можете заказать эту справку!";
-  static String orderingInformationWarning = "Сформированная справка-вызов фиксируется в электронном журнале дирекции / деканате института / факультета!";
+  static String orderingInformationWarning =
+      "Сформированная справка-вызов фиксируется в электронном журнале дирекции / деканате института / факультета!";
   static String orderingInformationTypeDate = 'Тип даты: ';
   static String orderingInformationStudyYear = 'Учебный год: ';
   static String orderingInformationDateStart = 'Дата начала: ';
@@ -181,7 +184,8 @@ class Localizable {
   static String orderingInformationMainChooseEndDate = 'Выбрать конечную дату';
   static String orderingInformationMainEndDate = 'Конечная дата:';
   static String orderingInformationMainRequestSuccessCreated = 'Заявка успешно создана!';
-  static String orderingInformationMainInfo = 'Готовые справки о доходах выдаются на следующий (и все последующие) рабочий день с 13:00 до 17:00 лично в руки'
+  static String orderingInformationMainInfo =
+      'Готовые справки о доходах выдаются на следующий (и все последующие) рабочий день с 13:00 до 17:00 лично в руки'
       ' (при предъявлении паспорта) по адресу: ул. Красная, 6 (главный корпус),каб. 1205, тел. (3842) 58-02-99\n'
       'Внимание: справку, включающую текущий месяц, необходимо заказать после окончания месяца!\n'
       'К примеру: справку, содержащую информацию о доходах, выплаченных в ноябре, необходимо заказать после 1 декабря.';
@@ -194,7 +198,8 @@ class Localizable {
   static String newCertPlaceholder = 'Иванову Ивану Ивановичу';
   static String newCertDownload = 'Скачать';
   static String newCertLoaded = 'Загрузка завершена';
-  static String newCertSaveOnDeviceDescription = 'Справка-вызов была сохранена в загрузках устройства';
+  static String newCertSaveOnDeviceDescriptionAndroid = 'Справка-вызов была сохранена в загрузках устройства';
+  static String newCertSaveOnDeviceDescriptionIOS = 'Справка-вызов была сохранена в папку "КемГУ"';
 
   /// News
   static String newsTitle = 'Новости';
